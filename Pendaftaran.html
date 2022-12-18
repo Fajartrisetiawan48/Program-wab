@@ -1,0 +1,74 @@
+<html>
+<head>
+    <title>Belajar Form Validation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <h1>Pendaftaran</h1>
+    <div class="container">
+        <form name="formPendaftaran" action="daftar.php" method="post" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label>NIM</label>
+                <input type="text" name="NIM" placeholder="NIM" class="form-control" required maxlength="40" minlength="3">
+            </div>
+            <div class="form-group">
+                <label>Nama</label>
+                <input type="text" name="nama" placeholder="Nama lengkap" class="form-control" required maxlength="40" minlength="3">
+            </div>
+            <div class="form-group">
+                <label>Jenis Kelamin </label>
+                <select name="Jenis Kelamin" class="form-control">
+                        <option value="0">Pilih Jenis Kelamin</option>
+                        <option value="1">Pria</option>
+                        <option value="2">Perempuan</option>
+                    </select>
+            </div>
+            <div class="form-group">
+                <label>Program Studi</label>
+                <input type="text" name="Program Studi" placeholder="Program Studi" class="form-control" required maxlength="40" minlength="3">
+            </div>
+            <div class="form-group">
+                <label>UKM </label>
+                <select name="UKM" class="form-control">
+                        <option value="0">Pilih UKM</option>
+                        <option value="1">Basket</option>
+                        <option value="2">Tenis Meja</option>
+                        <option value="3">Futsal</option>
+                        <option value="4">Band</option>
+                        <option value="5">Catur</option>
+                    </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="batal" class="btn btn_ptimary">Batal</button>
+        </form>
+    </div>
+    <script>
+        function validateForm() {
+            if (document.forms["formPendaftaran"]["NIM"].value == "") {
+                alert("NIM Tidak Boleh Kosong");
+                document.forms["formPendaftaran"]["NIM"].focus();
+                return false;
+            }
+            if (document.forms["formPendaftaran"]["nama"].value == "") {
+                alert("Nama Tidak Boleh Kosong");
+                document.forms["formPendaftaran"]["nama"].focus();
+                return false;
+            }
+            if (document.forms["formPendaftaran"]["Jenis Kelamin"].selectedIndex < 1) {
+                alert("Pilih Jenis Kelamin");
+                document.forms["formPendaftaran"]["Jenis Kelamin"].focus();
+                return false;
+            if (document.forms["formPendaftaran"]["Program Studi"].value == "") {
+                alert("Program Studi Tidak Boleh Kosong");
+                document.forms["formPendaftaran"]["Program Studi"].focus();
+                return false;
+            }
+            if (document.forms["formPendaftaran"]["UKM"].selectedIndex < 1) {
+                alert("Pilih UKM.");
+                document.forms["formPendaftaran"]["UKM"].focus();
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
